@@ -1,0 +1,14 @@
+services:
+  web:
+    build: ./web
+    image: web
+    command: ./entrypoint.sh
+    ports:
+      - 5000:5000
+    volumes:
+      - ./web:/code
+    environment:
+        PORT: $PORT
+        HOST: $HOST
+        FLASK_ENV: $FLASK_ENV
+        FLASK_DEBUG: $FLASK_DEBUG

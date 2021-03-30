@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for product in products %}
+    <ul id="product.label">
+      <li>Label: {{ product.label }}</li>
+      <li>Quantity: {{ product.quantity }}</li>
+      <li>Creation date: {{ product.creation_date }}</li>
+    </ul>
+  {% endfor %}
+{% endblock %}

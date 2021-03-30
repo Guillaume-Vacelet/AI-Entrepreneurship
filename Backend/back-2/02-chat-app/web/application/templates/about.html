@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block content %}
+<header>
+  <h2 class="page-title">{% block title %}About{% endblock %}</h2>
+</header>
+<div>
+  <p>This Flask project is created for the AI Entrepreneurship track as a training exercise.</p>
+</div>
+{% endblock %}

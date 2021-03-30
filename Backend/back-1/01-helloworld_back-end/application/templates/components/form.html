@@ -1,0 +1,14 @@
+{% macro form(fields) -%}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/form.css') }}">
+
+  <div class="form">
+    {% for field in fields %}
+      <div class="form-field">
+        <label class="form-field-label" for="{{ field.label }}">
+          {{ field.label }}
+        </label>
+        <input class="form-field-input" name="{{ field.label }}" type="{{ field.type }}">
+      </div>
+    {% endfor %}
+  </div>
+{%- endmacro %}

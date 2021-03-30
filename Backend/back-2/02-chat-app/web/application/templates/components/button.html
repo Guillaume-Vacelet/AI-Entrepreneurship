@@ -1,0 +1,5 @@
+{% macro button(label='', type='', style='') -%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/button.css') }}">
+
+    <button class="{{ style }}" type="{{ type }}">{{ label }}</button>
+{%- endmacro %}

@@ -1,0 +1,24 @@
+{% from 'components/navbar.html' import navbar %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Back - 1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  </head>
+  <body>
+    <div id="app">
+      {% set tabs = [
+        { 'label': "Login", 'to': "login" },
+        { 'label': "Register", 'to': "register" },
+        { 'label': "About", 'to': "about" },
+        ]
+     %}
+      {{ navbar(tabs) }}
+      <div id="page-container">
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
