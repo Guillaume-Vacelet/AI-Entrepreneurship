@@ -1,11 +1,10 @@
 import React from 'react';
-import { SafeAreaView, View, StatusBar, Text, StyleSheet, ImageBackground, Pressable } from 'react-native';
-import { FlatGrid } from 'react-native-super-grid';
-import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaView, View, StatusBar, StyleSheet, Pressable, Image, Text } from 'react-native';
+import { Icon, ListItem } from 'react-native-elements';
 
-export default function HomeScreen({navigation}) {
-  let base_images_path = '../../../assets/categories_images/';
-  
+export default function RootCategory(props, {navigation}) {
+  let base_images_path = '../../assets/categories_images/';
+
   const [items, setItems] = React.useState([
     { label: 'Fruits', path: '', image: require(base_images_path + 'fruits_image.jpg') },
     { label: 'Legumes', path: '', image: require(base_images_path + 'vegetables_image.jpg') },
@@ -14,19 +13,27 @@ export default function HomeScreen({navigation}) {
   ]);
 
   function onPressItem(item) {
+    console.log(item.label)
     // navigation.navigate(item.label.toLowerCase())
   }
 
   return (
     <SafeAreaView style={styles.rootContainer}>
       <View style={styles.headerContainer}>
+        <Icon
+          raised 
+          name='arrow-left' 
+          type='font-awesome' 
+          color='#fb8500' 
+          onPress={() => navigation.goBack()} 
+        />
+        <Text style={styles.headerTitle}>Fruits</Text>
+        <Text>{ props.title }</Text>
       </View>
 
       <View style={styles.bodyContainer}>
-        <FlatGrid itemDimension={130} data={items} style={styles.gridView} spacing={10}
-          // staticDimension={300} 
-          // fixed
-          renderItem={({ item }) => (
+        {
+          items.map((item, i) => (
             <Pressable onPress={() => onPressItem(item)} style={({ pressed }) => [
               {
                 backgroundColor: pressed
@@ -35,14 +42,17 @@ export default function HomeScreen({navigation}) {
               },
               styles.wrapperCustom
             ]}>
-              <View style={styles.itemContainer}>
-                <ImageBackground style={styles.itemImage} imageStyle={{ borderRadius: 10, opacity: 0.8}} source={item.image}>
-                  <Text style={styles.itemLabel}>{item.label}</Text>
-                </ImageBackground>
-              </View>
+              <ListItem key={i} bottomDivider>
+                <Image style={styles.itemImage} source={item.image} />
+                <ListItem.Content>
+                  <ListItem.Title style={styles.itemLabel}>{item.label}</ListItem.Title>
+                  {/* <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle> */}
+                </ListItem.Content>
+                <ListItem.Chevron />
+              </ListItem>
             </Pressable>
-          )}
-        />
+          ))
+        }
       </View>
     </SafeAreaView>
   );
@@ -68,28 +78,20 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     justifyContent: 'flex-start',
   },
-  gridView: {
-    marginTop: 10,
-    flex: 1,
-  },
-  itemContainer: {
-    justifyContent: 'flex-end',
-    // borderRadius: 10,
-    // padding: 10,
-    height: 150,
-  },
-  itemImage: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "flex-end",
-    padding: 10,
-  },
-  itemLabel: {
+  headerTitle: {
     fontSize: 25,
-    color: 'black',
+    color: '#fb8500',
     fontWeight: '600',
   },
+  itemImage: {
+    width: 70,
+    height: 55,
+  },
+  itemLabel: {
+    fontSize: 20,
+    color: 'black',
+    fontWeight: '400',
+  },
   wrapperCustom: {
-    borderRadius: 10,
   },
 });
