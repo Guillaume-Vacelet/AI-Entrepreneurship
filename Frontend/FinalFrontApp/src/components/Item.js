@@ -1,9 +1,9 @@
 import React from 'react';
 import { SafeAreaView, View, StatusBar, StyleSheet, Pressable, Image, Text } from 'react-native';
-import { Icon, ListItem } from 'react-native-elements';
+import { Icon, ListItem, Header } from 'react-native-elements';
 
-export default function RootCategory(props, {navigation}) {
-  let base_images_path = '../../assets/categories_images/';
+export default function Item(props, {navigation}) {
+  let base_images_path = '../../assets/items_images/';
 
   const [items, setItems] = React.useState([
     { label: 'Fruits', path: '', image: require(base_images_path + 'fruits_image.jpg') },
@@ -20,15 +20,17 @@ export default function RootCategory(props, {navigation}) {
   return (
     <SafeAreaView style={styles.rootContainer}>
       <View style={styles.headerContainer}>
-        <Icon
-          raised 
-          name='arrow-left' 
-          type='font-awesome' 
-          color='#fb8500' 
-          onPress={() => navigation.goBack()} 
+        <Header
+          leftComponent={
+            <Icon
+              raised 
+              name='arrow-left' 
+              type='font-awesome' 
+              color='#fb8500' 
+              onPress={() => navigation.goBack()} 
+            />}
+          centerComponent={<Text style={styles.headerTitle}>Fruits</Text>}
         />
-        <Text style={styles.headerTitle}>Fruits</Text>
-        <Text>{ props.title }</Text>
       </View>
 
       <View style={styles.bodyContainer}>
