@@ -16,9 +16,8 @@ export default function HelpTips() {
         type='font-awesome'
         color='#fb8500'
         onPress={() => toggleOverlay()}
-        size={30}
+        size={35}
       />
-
       <Overlay isVisible={overlayVisibility} onBackdropPress={toggleOverlay} overlayStyle={{width: 300, padding: 20}}>
         <View style={styles.modalHeader}>
           <Icon name='question-circle' type='font-awesome' color='black' />
