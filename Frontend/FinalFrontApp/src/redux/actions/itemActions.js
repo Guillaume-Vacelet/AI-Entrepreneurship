@@ -1,6 +1,6 @@
 import {ADD_ITEM, EDIT_ITEM_TITLE, EDIT_ITEM_IMAGE, REMOVE_ITEM} from '../constants/itemActionTypes'
 
-let itemID = 6;
+let itemID = 3;
 
 export const addItem = (title, image, price) => ({
 	type: ADD_ITEM,

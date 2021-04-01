@@ -1,59 +1,50 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { removeItem } from "../../redux/actions/itemActions";
+import { editItemTitle, removeItem } from "../../redux/actions/itemActions";
 import { View, StyleSheet, Pressable, ImageBackground, Text } from 'react-native';
-import { Icon } from 'react-native-elements';
+import RootItemEditMode from './RootItemEditMode';
 
 export default function RootItem(props) {
+  const [itemTitle, setItemTitle] = React.useState(props.item.title);
   const dispatch = useDispatch();
 
+  function handleRenameItem(input) {
+    setItemTitle(input)
+    dispatch(editItemTitle(props.item.id, input))
+  }
   function handleRemoveItem() {
-    
     dispatch(removeItem(props.item))
   }
    
-  // let itemImage = require('../../../assets/items_images/' + props.item.image);
-
   return (
     <Pressable 
       onLongPress={props.onLongPress}
       style={({ pressed }) => [
-        {
-          backgroundColor: pressed
-            ? '#686868'
-            : 'white'
-        },
-        styles.wrapperCustom
+        {backgroundColor: pressed ? '#686868' : 'white' },
+        styles.itemContainer
       ]}
     >
-      <View style={styles.itemContainer}>
-        {props.deleteVisible
-          ? <Icon 
-              name='times' 
-              type='font-awesome' 
-              color='red' 
-              onPress={handleRemoveItem} 
-              iconStyle={{alignSelf: 'flex-end', marginBottom: 'auto'}}
-            />
-          : null
-        }
-        <ImageBackground 
-          style={styles.itemImage} 
-          imageStyle={{ borderRadius: 10, opacity: 0.8}} 
-          source={props.item.image}
-        >
-          
-          <Text style={styles.itemTitle}>{props.item.title}</Text>
-        </ImageBackground>
-      </View>
+      {props.deleteVisible
+        ? <RootItemEditMode 
+            handleRemoveItem={handleRemoveItem} 
+            handleRenameItem={handleRenameItem}
+            itemTitle={itemTitle}
+          />
+        : <ImageBackground 
+            style={styles.itemImage} 
+            imageStyle={{ borderRadius: 10, opacity: 0.8}} 
+            source={props.item.image}
+          >
+            <Text style={styles.itemTitle}>{props.item.title}</Text>
+          </ImageBackground>
+      }
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   itemContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
+    borderRadius: 10,
     height: 150,
     maxHeight: 150,
   },
@@ -61,14 +52,11 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "flex-end",
-    padding: 10,
   },
   itemTitle: {
     fontSize: 25,
     color: 'black',
     fontWeight: '600',
-  },
-  wrapperCustom: {
-    borderRadius: 10,
-  },
+    margin: 10,
+  }
 });

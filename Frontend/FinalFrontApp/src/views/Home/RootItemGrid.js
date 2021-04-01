@@ -5,6 +5,7 @@ import { FlatGrid } from 'react-native-super-grid';
 
 import RootItem from './RootItem'
 import AddItem from '../../components/AddItem'
+import HelpTips from '../../components/HelpTips';
 
 export default function RootItemGrid() {
   const [deleteVisible, setDeleteVisible] = React.useState(false);
@@ -17,7 +18,7 @@ export default function RootItemGrid() {
   return (
     <SafeAreaView style={styles.rootContainer}>
       <View style={styles.headerContainer}>
-        <Text style={styles.title}>Mon Marché</Text>
+        <HelpTips />
       </View>
       <View style={styles.bodyContainer}>
         {state.items
@@ -33,7 +34,7 @@ export default function RootItemGrid() {
                 />
               )}
             />)
-          : <Text style={styles.title}>{"No items yet."}</Text>
+          : <Text style={styles.placeholder}>{"No items yet."}</Text>
         }
       </View>
       <View style={styles.footerContainer}>
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
   },
   gridView: {
   },
-  title: {
+  placeholder: {
     fontSize: 25,
     color: 'black',
     fontWeight: '600',
