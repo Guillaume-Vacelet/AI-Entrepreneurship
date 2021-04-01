@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, Input } from 'react-native-elements';
 import { View, StyleSheet } from 'react-native';
 
-export default function RootItemEditMode(props) {
+export default function GridItemEditMode(props) {
   return (
     <View style={styles.editMode}>
       <Icon 

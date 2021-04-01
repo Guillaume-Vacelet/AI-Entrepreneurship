@@ -1,19 +1,23 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 import { editItemTitle, removeItem } from "../../redux/actions/itemActions";
-import { View, StyleSheet, Pressable, ImageBackground, Text } from 'react-native';
-import RootItemEditMode from './RootItemEditMode';
+import { StyleSheet, Pressable, ImageBackground, Text } from 'react-native';
+import GridItemEditMode from './GridItemEditMode';
 
-export default function RootItem(props) {
+export default function GridItem(props) {
   const [itemTitle, setItemTitle] = React.useState(props.item.title);
+  React.useEffect(() => {
+    setItemTitle(props.item.title);
+  });
+
   const dispatch = useDispatch();
 
   function handleRenameItem(input) {
-    setItemTitle(input)
-    dispatch(editItemTitle(props.item.id, input))
+    setItemTitle(input);
+    dispatch(editItemTitle(props.item.id, input));
   }
   function handleRemoveItem() {
-    dispatch(removeItem(props.item))
+    dispatch(removeItem(props.item));
   }
    
   return (
@@ -25,7 +29,7 @@ export default function RootItem(props) {
       ]}
     >
       {props.deleteVisible
-        ? <RootItemEditMode 
+        ? <GridItemEditMode 
             handleRemoveItem={handleRemoveItem} 
             handleRenameItem={handleRenameItem}
             itemTitle={itemTitle}

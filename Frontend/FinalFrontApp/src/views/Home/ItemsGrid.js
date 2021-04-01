@@ -3,11 +3,11 @@ import { SafeAreaView, StatusBar, View, StyleSheet, Text } from 'react-native';
 import { useSelector } from "react-redux";
 import { FlatGrid } from 'react-native-super-grid';
 
-import RootItem from './RootItem'
+import GridItem from './GridItem'
 import AddItem from '../../components/AddItem'
 import HelpTips from '../../components/HelpTips';
 
-export default function RootItemGrid() {
+export default function ItemsGrid() {
   const [deleteVisible, setDeleteVisible] = React.useState(false);
   const state = useSelector(state => state.items);
 
@@ -28,7 +28,7 @@ export default function RootItemGrid() {
               style={styles.gridView} 
               spacing={10}
               renderItem={({ item }) => (
-                <RootItem item={item} 
+                <GridItem item={item} 
                   deleteVisible={deleteVisible} 
                   onLongPress={onLongPressItem} 
                 />

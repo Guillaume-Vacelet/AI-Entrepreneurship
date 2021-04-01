@@ -5,13 +5,6 @@ import { Icon, ListItem, Header } from 'react-native-elements';
 export default function Item(props, {navigation}) {
   let base_images_path = '../../assets/items_images/';
 
-  const [items, setItems] = React.useState([
-    { label: 'Fruits', path: '', image: require(base_images_path + 'fruits_image.jpg') },
-    { label: 'Legumes', path: '', image: require(base_images_path + 'vegetables_image.jpg') },
-    { label: 'Boissons', path: '', image: require(base_images_path + 'drinks_image.jpg') },
-    { label: 'Viandes', path: '', image: require(base_images_path + 'meats_image.jpg') },
-  ]);
-
   function onPressItem(item) {
     console.log(item.label)
     // navigation.navigate(item.label.toLowerCase())
