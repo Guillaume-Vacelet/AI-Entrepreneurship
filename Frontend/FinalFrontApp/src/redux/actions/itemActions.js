@@ -40,5 +40,7 @@ export const editItemImage = (itemID, newImage) => ({
 
 export const removeItem = (itemID) => ({
 	type: REMOVE_ITEM,
-	payload: itemID
+	payload: {
+		id: itemID
+	}
 })

@@ -65,7 +65,9 @@ export default function(state = initialState, action) {
     case REMOVE_ITEM: {
 			return {
 				...state,
-				items: state.items.filter(item => item.id !== action.payload) 
+				items: state.items.filter(item => {
+					(item.id !== action.payload.id) && (item.parent_id !== action.payload.id)
+				})
 			}
 		}
 		default:
