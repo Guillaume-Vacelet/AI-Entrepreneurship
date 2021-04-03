@@ -16,20 +16,20 @@ export default function App() {
   const BottomNavBar = createBottomTabNavigator();
 
   return (
-      <Provider store={store}>
-        <NavigationContainer>
-          <BottomNavBar.Navigator initialRouteName="Home"
-          tabStyle={styles.bottomNavBar}
-          tabBarOptions={{
-            activeTintColor: 'red',
-            inactiveTintColor: 'gray',
-          }}
-          >
-            <BottomNavBar.Screen name="Home" component={HomeScreen} />
-            <BottomNavBar.Screen name="Search" component={SearchScreen} />
-          </BottomNavBar.Navigator>
-        </NavigationContainer>
-      </Provider>
+    <Provider store={store}>
+      <NavigationContainer>
+        <BottomNavBar.Navigator initialRouteName="Home"
+        tabStyle={styles.bottomNavBar}
+        tabBarOptions={{
+          activeTintColor: 'red',
+          inactiveTintColor: 'gray',
+        }}
+        >
+          <BottomNavBar.Screen name="Home" component={HomeScreen} />
+          <BottomNavBar.Screen name="Search" component={SearchScreen} />
+        </BottomNavBar.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

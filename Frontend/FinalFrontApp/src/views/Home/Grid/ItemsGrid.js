@@ -1,9 +1,10 @@
 import React from 'react';
+import { StatusBar, View, StyleSheet, Text } from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
+//redux
 import { useSelector } from "react-redux";
 import { getChildrenFromParentID } from "../../../redux/selectors/itemSelectors"
-import { SafeAreaView, StatusBar, View, StyleSheet, Text } from 'react-native';
-import { FlatGrid } from 'react-native-super-grid';
-
+//components
 import HomeHeader from '../Header/HomeHeader';
 import GridItem from './GridItem';
 import HomeFooter from '../Footer/HomeFooter';
@@ -17,7 +18,7 @@ export default function ItemsGrid({navigation}) {
   }
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <HomeHeader 
         pageTitle={"Accueil"} 
         canGoBack={false} 
@@ -43,7 +44,7 @@ export default function ItemsGrid({navigation}) {
         }
       </View>
       <HomeFooter parentID={0} se />
-    </SafeAreaView>
+    </View>
   );
 }
 

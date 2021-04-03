@@ -1,8 +1,9 @@
 import React from 'react';
+import { View, StatusBar, StyleSheet } from 'react-native';
+//redux
 import { useSelector } from "react-redux";
 import { getChildrenFromParentID } from "../../../redux/selectors/itemSelectors"
-import { SafeAreaView, View, StatusBar, StyleSheet } from 'react-native';
-
+//components
 import HomeHeader from '../Header/HomeHeader';
 import ListItemWrapper from './ListItemWrapper';
 import HomeFooter from '../Footer/HomeFooter';
@@ -18,7 +19,7 @@ export default function ItemsList({route, navigation}) {
   }
 
   return (
-    <SafeAreaView style={styles.rootContainer}>
+    <View style={styles.rootContainer}>
       <HomeHeader 
         pageTitle={parentItem.title} 
         canGoBack={true} 
@@ -38,7 +39,7 @@ export default function ItemsList({route, navigation}) {
         ))}
       </View>
       <HomeFooter parentID={parentItem.id} />
-    </SafeAreaView>
+    </View>
   );
 }
 
