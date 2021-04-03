@@ -14,7 +14,8 @@ export default function HelpTips() {
       <Icon
         name='question-circle'
         type='font-awesome'
-        color='#fb8500'
+        color='white'
+        // color='#fb8500'
         onPress={() => toggleOverlay()}
         size={35}
       />
@@ -26,8 +27,7 @@ export default function HelpTips() {
 
         <View style={styles.modalTip}>
           <Text style={styles.tipText}>
-            Appuyer longuement sur un élément pour entrer/sortir en mode édition.
-            En mode édition, vous pouvez :
+            Appuyer longuement sur un élément pour entrer/sortir du mode édition et :
           </Text>
         </View>
 
@@ -57,10 +57,6 @@ export default function HelpTips() {
 }
 
 const styles = StyleSheet.create({
-  helpTipsButton: {
-    alignSelf: 'center',
-    // marginLeft: 'auto'
-  },
   modalHeader: {
     flexDirection: 'row',
     alignItems: 'center',

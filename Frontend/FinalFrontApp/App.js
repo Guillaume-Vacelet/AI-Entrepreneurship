@@ -8,8 +8,7 @@ import store from "./src/redux/store";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // components
-// import HomeScreen from './src/views/Home/HomeScreen';
-import HomeScreen from './src/views/Home/ItemsGrid';
+import HomeScreen from './src/views/Home/HomeScreen';
 import SearchScreen from './src/views/Search/SearchScreen';
 
 

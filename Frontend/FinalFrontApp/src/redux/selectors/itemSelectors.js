@@ -1,7 +1,2 @@
-export const getItemsState = store => store.items;
-
-export const getItemList = store =>
-  getItemsState(store) ? getItemsState(store).items : {};
-
-export const getItemById = (store, id) =>
-  getItemsState(store) ? { ...getItemsState(store).items[id], id } : {};
+export const getChildrenFromParentID = (store, id) =>
+  store.items.filter(item => item.parent_id == id);

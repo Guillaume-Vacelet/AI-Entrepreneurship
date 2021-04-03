@@ -4,7 +4,7 @@ import { Icon, Overlay, Input, Button } from 'react-native-elements';
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/actions/itemActions";
 
-export default function AddItem() {
+export default function AddItem(props) {
   const [overlayVisibility, setOverlayVisibility] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function AddItem() {
   };
 
   function handleNewItem() {
-    dispatch(addItem(inputValue, '', ''))
+    dispatch(addItem(inputValue, props.parentID, null, null))
     toggleOverlay()
   }
 
@@ -36,6 +36,7 @@ export default function AddItem() {
           inputStyle={{margin: 10}}
         />
         <Button 
+          disabled={!inputValue}
           title="valider" 
           onPress={handleNewItem}
           buttonStyle={{width: 100, alignSelf: 'center'}} 

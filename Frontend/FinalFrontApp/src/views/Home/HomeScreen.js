@@ -1,9 +1,16 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function Home({navigation}) {
-  return;
+import ItemsGrid from './Grid/ItemsGrid'
+import ItemsList from './List/ItemsList'
+
+export default function Home() {
+  const Stack = createStackNavigator();
+
+  return (
+    <Stack.Navigator initialRouteName="Grid" >
+      <Stack.Screen name="Grid" component={ItemsGrid} options={{headerShown: false}} />
+      <Stack.Screen name="List" component={ItemsList} options={{headerShown: false}} />
+    </Stack.Navigator>
+  );
 }
-
-const styles = StyleSheet.create({
-});
