@@ -20,13 +20,6 @@ export default function ListItemWrapper(props) {
       ]}
     >
       {props.editMode
-        // ? <ListItemWrapperEditMode 
-        //     itemTitle={itemTitle}
-        //     itemPrice={itemPrice}
-        //     handleRenameItem={handleRenameItem}
-        //     handleEditPrice={handleEditPrice}
-        //     handleRemoveItem={handleRemoveItem}
-        //   />
         ? <ListItemWrapperEditMode item={props.item} />
         : <ListItem bottomDivider>
             <View style={styles.itemImageContainer}>
@@ -49,6 +42,8 @@ export default function ListItemWrapper(props) {
 }
 
 const styles = StyleSheet.create({
+  itemContainer: {
+  },
   itemImageContainer: {
     width: 70,
     height: 55,
@@ -62,8 +57,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'black',
     fontWeight: '400',
-  },
-  wrapperCustom: {
-    justifyContent: 'center'
   },
 });

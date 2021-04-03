@@ -5,7 +5,7 @@ import { FlatGrid } from 'react-native-super-grid';
 import { useSelector } from "react-redux";
 import { getChildrenFromParentID } from "../../../redux/selectors/itemSelectors"
 //components
-import HomeHeader from '../Header/HomeHeader';
+import AppHeader from '../../../components/AppHeader';
 import GridItem from './GridItem';
 import HomeFooter from '../Footer/HomeFooter';
 
@@ -19,7 +19,7 @@ export default function ItemsGrid({navigation}) {
 
   return (
     <View style={styles.rootContainer}>
-      <HomeHeader 
+      <AppHeader 
         pageTitle={"Accueil"} 
         canGoBack={false} 
         helpTips={true} 
@@ -43,7 +43,7 @@ export default function ItemsGrid({navigation}) {
           : <Text style={styles.placeholder}>{"Aucun article."}</Text>
         }
       </View>
-      <HomeFooter parentID={0} se />
+      <HomeFooter parentID={0} />
     </View>
   );
 }

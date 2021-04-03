@@ -1,8 +1,13 @@
 import React from 'react';
-import { StyleSheet, Pressable, ImageBackground, Text } from 'react-native';
+import { StyleSheet, Pressable, View, ImageBackground, Text } from 'react-native';
 import GridItemEditMode from './GridItemEditMode';
 
 export default function GridItem(props) {
+  const [itemTitle, setItemTitle] = React.useState(props.item.title);
+  const [itemPrice, setItemPrice] = React.useState(props.item.price);
+  React.useEffect(() => setItemTitle(props.item.title));
+  React.useEffect(() => setItemPrice(props.item.price));
+
   function handleOnPress() {
     if (!props.item.price) {
       props.navigation.push('List', props.item)
@@ -19,13 +24,25 @@ export default function GridItem(props) {
       ]}
     >
       {props.editMode
-        ? <GridItemEditMode item={props.item} />
+        ? <GridItemEditMode 
+            itemID={props.item.id}
+            itemTitle={itemTitle}
+            itemPrice={itemPrice}
+            setItemTitle={setItemTitle}
+            setItemPrice={setItemPrice}
+          />
         : <ImageBackground 
             style={styles.itemImage} 
             imageStyle={{ borderRadius: 10, opacity: 0.8}} 
             source={props.item.image}
           >
-            <Text style={styles.itemTitle}>{props.item.title}</Text>
+            <View style={styles.itemInfos}>
+              <Text style={styles.itemTitle}>{itemTitle}</Text>
+              {props.item.price
+                ? <Text style={styles.itemPrice}>€{itemPrice}</Text>
+                : null
+              }
+            </View>
           </ImageBackground>
       }
     </Pressable>
@@ -43,10 +60,22 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "flex-end",
   },
+  itemInfos: {
+    // backgroundColor: 'black',
+    // opacity: 0.2
+    margin: 10,
+    flexDirection: 'row'
+  },
   itemTitle: {
     fontSize: 25,
     color: 'black',
     fontWeight: '600',
-    margin: 10,
+    flex: 1
+  },
+  itemPrice: {
+    color: 'black',
+    fontSize: 25,
+    fontWeight: '600',
+    alignSelf: 'flex-end'
   }
 });

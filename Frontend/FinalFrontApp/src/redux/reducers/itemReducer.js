@@ -24,68 +24,18 @@ const initialState = {
 	]
 };
 
-// const initialState = {
-//   items: [
-// 		{ id: 0, title: 'Fruits', image: require(base_images_path + 'fruits_image.jpg'), price: null,
-// 			children: [
-// 				{ id: 4, title: 'Pomme', image: require(base_images_path + 'apple.jpg'), price: 0.5, children: [] },
-// 				{ id: 5, title: 'Pastèque', image: require(base_images_path + 'watermelon.jpg'), price: 2.0, children: [] },
-// 				{ id: 6, title: 'Peche', image: require(base_images_path + 'peach.jpg'), price: 0.5, children: [] },
-// 				{ id: 7, title: 'Mangue', image: null, price: 1, children: [] }
-// 			]
-// 		},
-//     { id: 1, title: 'Legumes', image: require(base_images_path + 'vegetables_image.jpg'), price: null,
-// 			children: [
-// 				{ id: 8, title: 'Broccoli', image: null, price: 1.0, children: [] },
-// 				{ id: 9, title: 'Haricots', image: null, price: 2.0, children: [] },
-// 			]
-// 		},
-//     { id: 2, title: 'Boissons', image: require(base_images_path + 'drinks_image.jpg'), price: null,
-// 			children: [
-// 				{ id: 10, title: 'Sodas', image: null, price: null, children: [] },
-// 				{ id: 11, title: 'Jus de fruits', image: null, price: null, children: [] },
-// 				{ id: 12, title: 'Alcools', image: null, price: null, children: [] }
-// 			]
-// 		},
-//     { id: 3, title: 'Viandes', image: require(base_images_path + 'meats_image.jpg'), price: null,
-// 			children: [
-// 				{ id: 13, title: 'Boeuf', image: null, price: null, children: [] },
-// 				{ id: 14, title: 'Volaille', image: null, price: null, children: [] },
-// 				{ id: 15, title: 'Poissons', image: null, price: null, 
-// 					children: [
-// 						{ id: 16, title: 'Sardines', image: null, price: 1, children: [] }
-// 					]
-// 				}
-// 			]
-// 		},
-// 	]
-// };
-
 export default function(state = initialState, action) {
 	switch (action.type) {
 		case ADD_ITEM: {
-			// let id = action.payload.id;
 			return {
 				...state,
 				items: [...state.items, action.payload]
-				// items: {...state.items, [id]: action.payload}
 			};
     }
 		case EDIT_ITEM_TITLE: {
-			// return Object.assign({}, state, {
-			// 	items: state.items.map(item => {
-			// 		if (item.id !== action.payload.id) {
-			// 			return item;
-			// 		}
-			// 		return Object.assign({}, item, {
-			// 			title: action.payload.title
-			// 		})
-			// 	})
-			// })
-
-			const index = state.items.findIndex(item => item.id !== action.payload.id);
+			const index = state.items.findIndex(item => item.id === action.payload.id);
 			const newItems = [...state.items];
-			newItems[index].title = action.payload.title;
+			newItems[index].title = action.payload.newTitle;
 
 			return {
 				...state,
@@ -93,9 +43,9 @@ export default function(state = initialState, action) {
 			}
 		}
 		case EDIT_ITEM_PRICE: {
-			const index = state.items.findIndex(item => item.id !== action.payload.id);
+			const index = state.items.findIndex(item => item.id === action.payload.id);
 			const newItems = [...state.items];
-			newItems[index].title = action.payload.price;
+			newItems[index].price = action.payload.newPrice;
 
 			return {
 				...state,
@@ -103,9 +53,9 @@ export default function(state = initialState, action) {
 			}
 		}
     case EDIT_ITEM_IMAGE: {
-			const index = state.items.findIndex(item => item.id !== action.payload.id);
+			const index = state.items.findIndex(item => item.id === action.payload.id);
 			const newItems = [...state.items];
-			newItems[index].image = action.payload.image;
+			newItems[index].image = action.payload.newImage;
 
 			return {
 				...state,

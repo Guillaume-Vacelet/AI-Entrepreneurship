@@ -2,16 +2,17 @@ import React from 'react';
 import { View, StatusBar, StyleSheet, Text } from 'react-native';
 import AppHeader from '../../components/AppHeader';
 
-export default function SearchScreen() {
+export default function SettingsScreen() {
   return (
     <View style={styles.rootContainer}>
       <AppHeader 
-        pageTitle={"Recherche"} 
+        pageTitle={"Paramètres"} 
         canGoBack={false} 
         helpTips={false} 
       />
+
       <View style={styles.bodyContainer}>
-        <Text>Recherche</Text>
+        <Text>Paramètres</Text>
       </View>
 
     </View>

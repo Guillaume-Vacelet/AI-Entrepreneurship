@@ -1,45 +1,44 @@
-import {ADD_ITEM, EDIT_ITEM_TITLE, EDIT_ITEM_IMAGE, REMOVE_ITEM} from '../constants/itemActionTypes'
+import {ADD_ITEM, EDIT_ITEM_TITLE, EDIT_ITEM_PRICE, EDIT_ITEM_IMAGE, REMOVE_ITEM} from '../constants/itemActionTypes'
 
 let itemID = 17;
 
-export const addItem = (title, parent_id, image, price) => ({
+export const addItem = (title, parentID, image) => ({
 	type: ADD_ITEM,
 	payload: {
 		id: ++itemID,
 		title: title,
-		parent_id: parent_id,
+		parent_id: parentID,
 		image: image,
-		price: price,
+		price: null,
 		children: []
 	},
 })
 
-export const editItemTitle = (id, newTitle) => ({
+export const editItemTitle = (itemID, newTitle) => ({
 	type: EDIT_ITEM_TITLE,
 	payload: {
-		id: id,
+		id: itemID,
 		newTitle: newTitle
 	}
 })
 
-export const editItemPrice = (id, newPrice) => ({
+export const editItemPrice = (itemID, newPrice) => ({
 	type: EDIT_ITEM_PRICE,
 	payload: {
-		id: id,
+		id: itemID,
 		newPrice: newPrice
 	}
 })
 
-export const editItemImage = (id, newImage) => ({
+export const editItemImage = (itemID, newImage) => ({
 	type: EDIT_ITEM_IMAGE,
 	payload: {
-		id: id,
+		id: itemID,
 		newImage: newImage
 	}
 })
 
-export const removeItem = (item) => ({
+export const removeItem = (itemID) => ({
 	type: REMOVE_ITEM,
-	payload: item.id
-	// payload: {[item.id]: item}
+	payload: itemID
 })

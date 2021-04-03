@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ItemsGrid from './Grid/ItemsGrid'
 import ItemsList from './List/ItemsList'
 
-export default function Home() {
+export default function HomeScreen() {
   const Stack = createStackNavigator();
 
   return (

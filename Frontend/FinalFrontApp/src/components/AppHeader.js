@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
-import HelpTips from '../../../components/HelpTips';
+import HelpTips from './HelpTips';
 
-export default function HomeHeader(props) {
+export default function AppHeader(props) {
   return (
     <Header 
       statusBarProps={{translucent: true}} 

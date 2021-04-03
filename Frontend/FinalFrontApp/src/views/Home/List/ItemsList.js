@@ -4,7 +4,7 @@ import { View, StatusBar, StyleSheet } from 'react-native';
 import { useSelector } from "react-redux";
 import { getChildrenFromParentID } from "../../../redux/selectors/itemSelectors"
 //components
-import HomeHeader from '../Header/HomeHeader';
+import AppHeader from '../../../components/AppHeader';
 import ListItemWrapper from './ListItemWrapper';
 import HomeFooter from '../Footer/HomeFooter';
 
@@ -20,7 +20,7 @@ export default function ItemsList({route, navigation}) {
 
   return (
     <View style={styles.rootContainer}>
-      <HomeHeader 
+      <AppHeader 
         pageTitle={parentItem.title} 
         canGoBack={true} 
         goBack={() => navigation.goBack()} 

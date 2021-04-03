@@ -14,7 +14,7 @@ export default function AddItem(props) {
   };
 
   function handleNewItem() {
-    dispatch(addItem(inputValue, props.parentID, null, null))
+    dispatch(addItem(inputValue, props.parentID, null))
     toggleOverlay()
   }
 

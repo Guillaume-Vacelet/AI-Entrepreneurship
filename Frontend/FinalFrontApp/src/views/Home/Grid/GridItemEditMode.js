@@ -2,21 +2,21 @@ import React from 'react';
 import { Icon, Input } from 'react-native-elements';
 import { View, StyleSheet } from 'react-native';
 import { useDispatch } from "react-redux";
-import { editItemTitle, removeItem } from "../../../redux/actions/itemActions";
-
+import { editItemTitle, editItemPrice, removeItem } from "../../../redux/actions/itemActions";
 
 export default function GridItemEditMode(props) {
-  const [itemTitle, setItemTitle] = React.useState(props.item.title);
-  React.useEffect(() => setItemTitle(props.item.title));
-
   const dispatch = useDispatch();
 
   function handleRenameItem(input) {
-    setItemTitle(input);
-    dispatch(editItemTitle(props.item.id, input));
+    props.setItemTitle(input);
+    dispatch(editItemTitle(props.itemID, input));
+  }
+  function handleRepriceItem(input) {
+    props.setItemPrice(input);
+    dispatch(editItemPrice(props.itemID, input));
   }
   function handleRemoveItem() {
-    dispatch(removeItem(props.item));
+    dispatch(removeItem(props.itemID));
   }
 
   return (
@@ -27,19 +27,36 @@ export default function GridItemEditMode(props) {
         color='red' 
         onPress={handleRemoveItem} 
       />
-      <Input 
-        value={itemTitle} 
-        onChangeText={(input) => handleRenameItem(input)}
-        leftIcon={
-          <Icon 
-            name='pen' 
-            type='font-awesome-5' 
-            color='black' 
-            size={12} 
-            iconStyle={{marginRight: 10}}
-          />
-        }
-      />
+      <View style={styles.inputs}>
+        <Input 
+          value={props.itemTitle} 
+          onChangeText={(input) => handleRenameItem(input)}
+          leftIcon={
+            <Icon 
+              name='pen' 
+              type='font-awesome-5' 
+              color='black' 
+              size={12} 
+              iconStyle={{marginRight: 5}}
+            />
+          }
+          containerStyle={{flex: 2}}
+        />
+        <Input 
+          value={props.itemPrice ? props.itemPrice.toString() : ""} 
+          onChangeText={(input) => handleRepriceItem(input)}
+          leftIcon={
+            <Icon 
+              name='euro-sign' 
+              type='font-awesome-5' 
+              color='black' 
+              size={12} 
+              iconStyle={{marginRight: 5}}
+            />
+          }
+          containerStyle={{flex: 1}}
+        />
+      </View>
     </View>
   );
 }
@@ -50,5 +67,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'flex-end',
     justifyContent: 'space-between'
+  },
+  inputs: {
+    display: 'flex',
+    flexDirection: 'row',
   }
 });

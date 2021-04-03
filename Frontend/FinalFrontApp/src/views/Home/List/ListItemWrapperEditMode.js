@@ -16,12 +16,12 @@ export default function ListItemWrapperEditMode(props) {
     setItemTitle(input);
     dispatch(editItemTitle(props.item.id, input));
   }
-  function handleEditPrice() {
+  function handleRepriceItem(input) {
     setItemPrice(input);
-    // dispatch(editItemPrice(props.item));
+    dispatch(editItemPrice(props.item.id, input));
   }
   function handleRemoveItem() {
-    dispatch(removeItem(props.item));
+    dispatch(removeItem(props.item.id));
   }
 
   return (
@@ -51,8 +51,8 @@ export default function ListItemWrapperEditMode(props) {
         />
       </ListItem.Content>
       <Input
-        value={itemPrice ? itemPrice.toString() : 'null'} 
-        onChangeText={(input) => handleEditPrice(input)}
+        value={itemPrice ? itemPrice.toString() : ""} 
+        onChangeText={(input) => handleRepriceItem(input)}
         leftIcon={
           <Icon 
             name='pen' 
