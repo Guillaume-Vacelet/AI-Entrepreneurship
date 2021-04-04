@@ -17,7 +17,7 @@ The application has been designed as a market application and it is inspired of 
 - [x] It must be possible to personalize categories style (text size, text, color, background color...).
 - [x] It must be possible to modify a category or item's name.
 - [x] User needs to be in a read-only mode and have to toggle edition-mode to modify elements.
-- [ ] User informations are saved inside phone's storage.
+- [x] User informations are saved inside phone's storage.
 - [ ] Items architecture can be send as json by email.
 - [x] It must be possible to add an image taken with the phone for each category.
 
