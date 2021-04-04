@@ -23,7 +23,7 @@ The application has been designed as a market application and it is inspired of 
 
 Bonuses
 
-- [ ] Add a search bar which displays only the demanded categories
+- [x] Add a search bar which displays only the demanded categories
 
 ## Installation
 
