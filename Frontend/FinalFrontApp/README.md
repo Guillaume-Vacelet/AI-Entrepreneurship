@@ -21,6 +21,10 @@ The application has been designed as a market application and it is inspired of 
 - [ ] Items architecture can be send as json by email.
 - [x] It must be possible to add an image taken with the phone for each category.
 
+Bonuses
+
+- [ ] Add a search bar which displays only the demanded categories
+
 ## Installation
 
 
