@@ -1,7 +1,9 @@
 # FinalFrontApp
 
 FinalFrontApp is the final exercise of the front-end sessions.
+
 The main objective was to implement a tree structure of customizable categories and items in ReactNative and Expo.
+
 The application has been designed as a market application and it is inspired of the Leclerc Drive application.
 
 [Sujet_Front_5.pdf](https://github.com/Guillaume-Vacelet/AI-Entrepreneurship/files/6255037/Sujet_Front_5.pdf)
@@ -21,4 +23,19 @@ The application has been designed as a market application and it is inspired of 
 
 ## Installation
 
+
+To install all the dependencies, run the following command from the root of the project:
+
+```bash
+npm install
+```
+
 ## Usage
+
+To start the Expo server, run the following command from the root of the project:
+
+```bash
+npm start
+```
+
+To run the application on your phone, flash the QR code that appeared in your terminal with your ExpoGo application.
