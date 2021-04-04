@@ -3,10 +3,12 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Icon, Overlay, Input, Button } from 'react-native-elements';
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/actions/itemActions";
+import { useSelector } from "react-redux";
 
 export default function AddItem(props) {
   const [overlayVisibility, setOverlayVisibility] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
+  const themeColor = useSelector(state => state.theme.themeColor);
   const dispatch = useDispatch();
 
   const toggleOverlay = () => {
@@ -24,7 +26,7 @@ export default function AddItem(props) {
         raised
         name='plus'
         type='font-awesome'
-        color='#fb8500'
+        color={themeColor}
         onPress={() => toggleOverlay()}
       />
 

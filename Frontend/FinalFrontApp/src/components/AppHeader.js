@@ -2,20 +2,22 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
 import HelpTips from './HelpTips';
+import { useSelector } from "react-redux";
 
 export default function AppHeader(props) {
+  const themeColor = useSelector(state => state.theme.themeColor);
+
   return (
     <Header 
       statusBarProps={{translucent: true}} 
-      backgroundColor={"#fb8500"}
+      backgroundColor={themeColor}
       leftComponent={props.canGoBack
         ? <Icon
             raised 
             name='arrow-left' 
             type='font-awesome' 
-            color='#fb8500' 
+            color={themeColor}
             onPress={props.goBack} 
-            
           />
         : null
       }
