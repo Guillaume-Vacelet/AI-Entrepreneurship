@@ -1,8 +1,16 @@
 import React from 'react';
-import { View, StatusBar, StyleSheet, Text } from 'react-native';
+import { View, StatusBar, StyleSheet, Text, Image } from 'react-native';
+import { SearchBar, ListItem } from 'react-native-elements';
+import { useSelector } from 'react-redux';
+import { getItemsFromTitle } from '../../redux/selectors/itemSelectors';
 import AppHeader from '../../components/AppHeader';
 
 export default function SearchScreen() {
+  const [search, setSearch] = React.useState('');
+  const searchResults = useSelector(state => getItemsFromTitle(state.items, search));
+
+  console.log(searchResults)
+
   return (
     <View style={styles.rootContainer}>
       <AppHeader 
@@ -11,9 +19,32 @@ export default function SearchScreen() {
         helpTips={false} 
       />
       <View style={styles.bodyContainer}>
-        <Text>Recherche</Text>
+        <SearchBar
+          placeholder="Cherchez des produits ici..."
+          onChangeText={setSearch}
+          value={search}
+          containerStyle={{width: '100%', backgroundColor: 'white'}}
+          inputContainerStyle={{backgroundColor: 'white'}}
+          inputStyle={{backgroundColor: 'white'}}
+        />
+        {searchResults.map((searchResult) => (
+          <ListItem bottomDivider key={searchResults.id} style={styles.itemContainer}>
+            <View style={styles.itemImageContainer}>
+              {searchResult.image
+                ? <Image style={styles.itemImage} source={{uri: searchResult.image}} />
+                : <Image style={styles.itemImage} source={{uri: Image.resolveAssetSource(noImage).uri}} />
+              }
+            </View>
+            <ListItem.Content>
+              <ListItem.Title style={styles.itemTitle}>{searchResult.title}</ListItem.Title>
+            </ListItem.Content>
+            {searchResult.price
+              ? <Text style={styles.itemTitle}>{searchResult.price}€</Text>
+              : <ListItem.Chevron />
+            }
+          </ListItem>
+        ))}
       </View>
-
     </View>
   );
 }
@@ -29,7 +60,23 @@ const styles = StyleSheet.create({
   bodyContainer: {
     width: '100%',
     flex: 5,
-    justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  itemContainer: {
+    width: "100%"
+  },
+  itemImageContainer: {
+    width: 70,
+    height: 65,
+    justifyContent: 'center'
+  },
+  itemImage: {
+    width: 70,
+    height: 65,
+  },
+  itemTitle: {
+    fontSize: 18,
+    color: 'black',
+    fontWeight: '400',
+  },
 });

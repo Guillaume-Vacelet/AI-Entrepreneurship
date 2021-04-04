@@ -6,7 +6,6 @@ import AppHeader from '../../components/AppHeader';
 
 export default function SettingsScreen() {
   const [classicTheme, setClassicTheme] = React.useState(true);
-  const appThemeColor = useSelector(state => state.theme.themeColor);
   const dispatch = useDispatch();
 
   function switchTheme() {
