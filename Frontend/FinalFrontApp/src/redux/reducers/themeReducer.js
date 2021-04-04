@@ -7,7 +7,6 @@ const initialState = {
 export default function(state = initialState, action) {
 	switch (action.type) {
     case CHANGE_THEME_COLOR:
-      console.log(action.payload)
       return {
 				...state,
         themeColor: action.payload.color
