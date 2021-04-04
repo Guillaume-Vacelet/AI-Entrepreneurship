@@ -34,7 +34,7 @@ export default function GridItem(props) {
         : <ImageBackground 
             style={styles.itemImage} 
             imageStyle={{ borderRadius: 10, opacity: 0.8}} 
-            source={props.item.image}
+            source={{uri: props.item.image}}
           >
             <View style={styles.itemInfos}>
               <Text style={styles.itemTitle}>{itemTitle}</Text>

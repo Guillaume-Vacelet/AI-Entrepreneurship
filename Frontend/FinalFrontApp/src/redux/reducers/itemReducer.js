@@ -1,16 +1,22 @@
 import {ADD_ITEM, EDIT_ITEM_TITLE, EDIT_ITEM_IMAGE, REMOVE_ITEM, EDIT_ITEM_PRICE} from '../constants/itemActionTypes'
-
-let base_images_path = '../../../assets/items_images/';
+import { Image } from 'react-native';
+import fruitsImage from '../../../assets/items_images/fruits_image.jpg'
+import vegetablesImage from '../../../assets/items_images/vegetables_image.jpg'
+import drinksImage from '../../../assets/items_images/drinks_image.jpg'
+import meatsImage from '../../../assets/items_images/meats_image.jpg'
+import appleImage from '../../../assets/items_images/apple.jpg'
+import watermelonImage from '../../../assets/items_images/watermelon.jpg'
+import peachImage from '../../../assets/items_images/peach.jpg'
 
 const initialState = {
   items: [
-		{ id: 1, title: 'Fruits', parent_id: 0, image : require(base_images_path + 'fruits_image.jpg'), price: null },
-    { id: 2, title: 'Legumes', parent_id: 0, image : require(base_images_path + 'vegetables_image.jpg'), price: null },
-    { id: 3, title: 'Boissons', parent_id: 0, image : require(base_images_path + 'drinks_image.jpg'), price: null },
-    { id: 4, title: 'Viandes', parent_id: 0, image : require(base_images_path + 'meats_image.jpg'), price: null },
-    { id: 5, title: 'Pomme', parent_id: 1, image : require(base_images_path + 'apple.jpg'), price: 0.5 },
-    { id: 6, title: 'Pastèque', parent_id: 1, image : require(base_images_path + 'watermelon.jpg'), price: 2.0 },
-    { id: 7, title: 'Peche', parent_id: 1, image : require(base_images_path + 'peach.jpg'), price: 0.5 },
+		{ id: 1, title: 'Fruits', parent_id: 0, image : Image.resolveAssetSource(fruitsImage).uri, price: null },
+    { id: 2, title: 'Legumes', parent_id: 0, image : Image.resolveAssetSource(vegetablesImage).uri, price: null },
+    { id: 3, title: 'Boissons', parent_id: 0, image : Image.resolveAssetSource(drinksImage).uri, price: null },
+    { id: 4, title: 'Viandes', parent_id: 0, image : Image.resolveAssetSource(meatsImage).uri, price: null },
+    { id: 5, title: 'Pomme', parent_id: 1, image : Image.resolveAssetSource(appleImage).uri, price: 0.5 },
+    { id: 6, title: 'Pastèque', parent_id: 1, image : Image.resolveAssetSource(watermelonImage).uri, price: 2.0 },
+    { id: 7, title: 'Peche', parent_id: 1, image : Image.resolveAssetSource(peachImage).uri, price: 0.5 },
     { id: 8, title: 'Mangue', parent_id: 1, image : null, price: 1 },
     { id: 9, title: 'Broccoli', parent_id: 2, image : null, price: 1.0 },
     { id: 10, title: 'Haricots', parent_id: 2, image : null, price: 2.0 },
