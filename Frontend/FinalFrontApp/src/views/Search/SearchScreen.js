@@ -3,13 +3,12 @@ import { View, StatusBar, StyleSheet, Text, Image } from 'react-native';
 import { SearchBar, ListItem } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import { getItemsFromTitle } from '../../redux/selectors/itemSelectors';
+import noImage from '../../../assets/items_images/no_image.png';
 import AppHeader from '../../components/AppHeader';
 
 export default function SearchScreen() {
   const [search, setSearch] = React.useState('');
   const searchResults = useSelector(state => getItemsFromTitle(state.items, search));
-
-  console.log(searchResults)
 
   return (
     <View style={styles.rootContainer}>
@@ -28,7 +27,7 @@ export default function SearchScreen() {
           inputStyle={{backgroundColor: 'white'}}
         />
         {searchResults.map((searchResult) => (
-          <ListItem bottomDivider key={searchResults.id} style={styles.itemContainer}>
+          <ListItem bottomDivider key={searchResult.id} style={styles.itemContainer}>
             <View style={styles.itemImageContainer}>
               {searchResult.image
                 ? <Image style={styles.itemImage} source={{uri: searchResult.image}} />

@@ -43,8 +43,6 @@ export default function ListItemWrapper(props) {
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-  },
   itemImageContainer: {
     width: 70,
     height: 65,
