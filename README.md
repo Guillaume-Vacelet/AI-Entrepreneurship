@@ -13,11 +13,11 @@ This is where i put all my work during the AI-Entrepreneurship track.
 
 | Name | Description |
 | --- | --- |
-| [back-1](Backend/back-1) | Learning backend development by implementing a dockerized basic Flask server. |
-| [back-2](Backend/back-2) | Going further in backend development by implementing API, Sockets and Workers interactions to a Flask server. |
+| [back-1       ](Backend/back-1) | Learning backend development by implementing a dockerized basic Flask server. |
+| [back-2       ](Backend/back-2) | Going further in backend development by implementing API, Sockets and Workers interactions to a Flask server. |
 
 ## Data
 
 | Name | Description |
 | --- | --- |
-| data-1 | Learning to create data stories with Jupyter Notebook and Matplotlib. |
+| [data-1       ](Data/data-1) | Learning to create data stories with Jupyter Notebook and Matplotlib. |
