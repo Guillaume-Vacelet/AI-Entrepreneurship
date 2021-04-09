@@ -1,7 +1,8 @@
 services:
   db:
-    build: ./db
-    image: db
+    #build: ./db
+    #image: db
+    image: postgres
     restart: always
     environment:
       POSTGRES_USER: $POSTGRES_USER
