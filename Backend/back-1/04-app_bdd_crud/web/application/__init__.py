@@ -12,6 +12,7 @@ def create_app():
 
     with app.app_context():
         from . import views
+        from . import models
 
         # Create tables for our models
         db.create_all()

@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% from "components/button.html" import button %}
+{% from 'components/button.html' import button %}
 {% from "components/form.html" import form %}
 
 {% block head %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -13,14 +13,15 @@
   <h2 class="page-title">{% block title %}Welcome{% endblock %}</h2>
 </header>
 <div>
-  <h3>Login to your account:</h3>
+  <h3>Create a new account</h3>
   {% set fields = [
       { "label": "username", "type": "text", "required": true},
+      { "label": "email", "type": "email", "required": true },
       { "label": "password", "type": "password", "required": true },
     ]
   %}
   {{ form(fields) }}
-  {{ button(label="login", type="submit", style="validate-btn") }}
-  <p>Not registered? <a href="register">Sign-up</a></p>
+  {{ button(label='register', type='submit', style="validate-btn") }}
+  <p>Already registered? <a href="login">Sign-in</a></p>
 </div>
 {% endblock %}
