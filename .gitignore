@@ -1,2 +1,3 @@
 *.pdf
 design
+__pycache__
