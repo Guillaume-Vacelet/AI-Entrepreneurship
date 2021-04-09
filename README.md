@@ -20,4 +20,4 @@ This is where i put all my work during the AI-Entrepreneurship track.
 
 | Name | Description |
 | --- | --- |
-| data-1 | Learning to create data stories with Jupyter Notebook and Matplotlib. |
+| [data-1       ](Data/data-1) | Learning to create data stories with Jupyter Notebook and Matplotlib. |
