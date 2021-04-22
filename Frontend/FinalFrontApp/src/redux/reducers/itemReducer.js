@@ -40,7 +40,6 @@ const initialState = {
 export default function(state = initialState, action) {
 	switch (action.type) {
 		case ADD_ITEM: {
-			console.log(state)
 			return {
 				...state,
 				items: [...state.items, action.payload]
