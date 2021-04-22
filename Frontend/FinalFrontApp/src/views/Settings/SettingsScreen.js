@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, StatusBar, StyleSheet, Text, Switch } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 import { useSelector, useDispatch } from 'react-redux';
 import {changeThemeColor } from '../../redux/actions/themeActions';
 import AppHeader from '../../components/AppHeader';
+import { resetStore } from '../../redux/actions/storeActions';
 
 export default function SettingsScreen() {
   const [classicTheme, setClassicTheme] = React.useState(true);
@@ -39,6 +41,19 @@ export default function SettingsScreen() {
             value={classicTheme}
           />
         </View>
+        <View style={styles.parameter}>
+          <Button title={"Reset application state"} 
+            buttonStyle={{ backgroundColor:'red' }} 
+            icon={
+              <Icon 
+                type="font-awesome-5" 
+                name="exclamation-triangle" 
+                iconStyle={{ paddingLeft: 5, paddingRight: 10 }} 
+              />
+            }
+            onPress={() => dispatch(resetStore())}
+          />
+        </View>
       </View>
 
     </View>
@@ -56,7 +71,7 @@ const styles = StyleSheet.create({
   bodyContainer: {
     width: '100%',
     flex: 5,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   parameter: {
