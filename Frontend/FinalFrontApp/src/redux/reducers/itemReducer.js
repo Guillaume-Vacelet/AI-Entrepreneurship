@@ -17,13 +17,13 @@ function getImageAsset(source) {
 
 const initialState = {
   items: [
-		{ id: 1, title: 'Fruits', parent_id: 0, image : getImageAsset(fruitsImage).uri, price: null },
-    { id: 2, title: 'Legumes', parent_id: 0, image : getImageAsset(vegetablesImage).uri, price: null },
-    { id: 3, title: 'Boissons', parent_id: 0, image : getImageAsset(drinksImage).uri, price: null },
-    { id: 4, title: 'Viandes', parent_id: 0, image : getImageAsset(meatsImage).uri, price: null },
-    { id: 5, title: 'Pomme', parent_id: 1, image : getImageAsset(appleImage).uri, price: 0.5 },
-    { id: 6, title: 'Pastèque', parent_id: 1, image : getImageAsset(watermelonImage).uri, price: 2.0 },
-    { id: 7, title: 'Peche', parent_id: 1, image : getImageAsset(peachImage).uri, price: 0.5 },
+		{ id: 1, title: 'Fruits', parent_id: 0, image : getImageAsset(fruitsImage), price: null },
+    { id: 2, title: 'Legumes', parent_id: 0, image : getImageAsset(vegetablesImage), price: null },
+    { id: 3, title: 'Boissons', parent_id: 0, image : getImageAsset(drinksImage), price: null },
+    { id: 4, title: 'Viandes', parent_id: 0, image : getImageAsset(meatsImage), price: null },
+    { id: 5, title: 'Pomme', parent_id: 1, image : getImageAsset(appleImage), price: 0.5 },
+    { id: 6, title: 'Pastèque', parent_id: 1, image : getImageAsset(watermelonImage), price: 2.0 },
+    { id: 7, title: 'Peche', parent_id: 1, image : getImageAsset(peachImage), price: 0.5 },
     { id: 8, title: 'Mangue', parent_id: 1, image : null, price: 1 },
     { id: 9, title: 'Broccoli', parent_id: 2, image : null, price: 1.0 },
     { id: 10, title: 'Haricots', parent_id: 2, image : null, price: 2.0 },
